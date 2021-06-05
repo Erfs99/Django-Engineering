@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    header{
+        text-align: center;
+        margin-top: 80px;
+        font-family: andalus;
+        font-weight: bolder;
+        font-size: xx-large;
+        color: rgb(255, 255, 255);
+    }
+    div{
+        margin: 0px;
+    }
+    .column{
+        float: left;
+        width: 50;
+        background-color: rgb(44, 41, 41);
+        padding: 30px 50px;
+        height: 300px;
+
+    }
+    .row{
+        margin: auto;
+        width: 70%;
+        padding: 10px;
+    }
+    body{
+        background-color: rgb(44, 41, 41);
+    }
+    p{
+        font-family: andalus;
+        font-size: large;
+        font-weight: bold;
+        color: rgb(85, 168, 252);
+    }
+    button{
+        background-color: rgb(61, 90, 61);
+        color: white;
+        
+    }
+    
+</style>
+<body>
+    <header>Engineer Assignment</header> <br><br><br><br><br>
+    <div class="row">
+            <div class="column">
+                <p>Calculate Fibunacci</p>
+            <form method="POST" action="{% url 'calculate:result' %}">
+                {% csrf_token %}
+                
+                {{form.number}}  
+                    &nbsp;<button class="btn btn-success" type="submit"> check! </button>
+            </form>
+            </div>
+
+            <div class="column">
+                <p>Calculate Ackermann m,n</p>
+            <form method="POST" action="{% url 'calculate:result1' %}">
+                {% csrf_token %}
+                {{form1.number1}}<br><br>
+                {{form1.number2}}
+                
+
+                &nbsp;<button class="btn btn-success" type="submit"> check! </button>
+            </form>
+            </div> 
+
+        </div>
+
+        <div class="column">
+            <p>Calculate Factorial</p>
+        <form method="POST" action="{% url 'calculate:result2' %}">
+            {% csrf_token %}
+            {{form2.number}}
+            &nbsp;<button class="btn btn-success" type="submit"> check! </button>
+           
+        </form>
+        </div> 
+    </div>
+</body>
+</html>
